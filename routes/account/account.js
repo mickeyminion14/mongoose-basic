@@ -5,7 +5,7 @@ const loginCtrl = require("../../controllers/account/login/loginCtrl")
 const account = express();
 
 
-account.get("/signup", signupCtrl);
+account.post("/signup", signupCtrl);
 
 account.get("/login",loginCtrl);
 
