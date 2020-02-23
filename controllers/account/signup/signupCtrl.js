@@ -1,18 +1,17 @@
-const User = require('../../../models/user/user.model');
-const insert = require('../../../db/insert')
-
+const insert = require('../../../db/account/insert')
 const signupCtrl = async (req, res) => {
     console.log(req.body);
-
-
     const payload = {...req.body};
 
-    const document = await insert(payload);
+    try {
 
-    console.log(document);
-    res.send("done !!");
-
+        const document = await insert(payload);
+        console.log(document);
+        res.send("done !!");
+    }
+    catch (e) {
+        res.send("something went wrong !!");
+    }
     
 }
-
 module.exports = signupCtrl;
