@@ -18,7 +18,13 @@ app.use("/account", account);
 app.use("/todo", todo);
 
 app.use((req, res) => {
-  res.send("Page not found 404 !!");
+  res.statusCode = 400;
+  res.json({
+    message: "Page Not Found !!",
+    result: {
+      data: null
+    }
+  });
 });
 
 mongoose.connect(
