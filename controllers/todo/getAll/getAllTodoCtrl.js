@@ -4,7 +4,6 @@ const getAllTodoCtrl = async (req, res) => {
     try {
 
         let documents = await getAllTodos();
-        console.log(documents);
 
         if (documents.length) {
 
