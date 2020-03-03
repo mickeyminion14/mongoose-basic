@@ -4,7 +4,7 @@ const todo = require("./routes/todo/todo");
 const account = require("./routes/account/account");
 const app = express();
 const cors = require("cors");
-
+const verifyToken = require('./utils/token/verifyToken')
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 8080;
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/account", account);
-app.use("/todo", todo);
+app.use("/todo", verifyToken, todo);
 
 app.use((req, res) => {
   res.statusCode = 400;
