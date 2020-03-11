@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const generateToken = (payload) => {
-    console.log(payload);
-
-    return jwt.sign(payload.toJSON(), "sarthak");
+    return jwt.sign(payload.toJSON(), "sarthak", {
+        expiresIn: "6h",
+    });
 }
 
 module.exports = generateToken;

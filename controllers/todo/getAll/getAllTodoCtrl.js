@@ -2,7 +2,6 @@ const getAllTodos = require('../../../db/todo/getAllTodos')
 const getAllTodoCtrl = async (req, res) => {
 
     try {
-        console.log(">>> log :", req);
 
         let documents = await getAllTodos();
 
